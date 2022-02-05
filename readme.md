@@ -49,7 +49,7 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
 
 <br>
 
-        CREATE TABLE Funcionários{ /* criar tabela + nome da tabela */
+        CREATE TABLE Funcionários{ --> criar tabela + nome da tabela 
         ID INT
         Nome VARCHAR{100}
         }
@@ -86,16 +86,28 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
         LIMIT 2;   --> limitar o numero de linhas de uma tabela
 
 <br>
-        SELECT Nome FROM Resultados;    -> selecionar a coluna de nome que está na tabela resultado
-<br>
+   
+           SELECT 
+               Nome 
+           FROM Resultados; 
+           ( selecionar a coluna de nome que está na tabela resultado)
+
+   <br>
+   
         ORDER BY Col3;   ----> permite ordenar uma tabela a partir de uma coluna de forma ascendente
-<br>
+
+   <br>
+   
         ORDER BY Col3 DESC; ----> ordena do maior ao menor.
-<br>
+
+   <br>
+   
         SELECT 
             COUNT (DISTINCT Escolaridade)
             FROM clientes;   ----> contar a quantidade de clientes
+   
 <br>
+   
         SELECT 
            COUNT (Nome)
            FROM clientes;   ----> contar a quantidade de clientes
@@ -108,6 +120,7 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
        GROUP BY sexo;
 
 <br>
+   
        SELECT
           tabela_A.Coluna1,
           tabela_B.Coluna2,
