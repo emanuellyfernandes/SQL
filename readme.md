@@ -33,19 +33,32 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
 * TABELA FATO = vai registrar os fatos ou acontecimentos de uma empresa/negócio de um determinado periodo de tempo (vendas, devoluções,trocas,chamados,despesas,receitas,etc)
 <br>
 
-* INNER JOIN = permite relacionar tabela A com a tabela B e criar uma nova tabela C que é a junção das duas
+* INNER JOIN = permite relacionar tabela A com a tabela B e criar uma nova tabela C que é a junção das duas ( tem que haver um identificador iguais nas duas tabelas)
 
 <br>
 
+* LEFT JOIN = vai pegar tudo de uma tabela da esquerda, e só os que tem a mesma ocorrencia depois do join.
+* RIGHT JOIN = inverso 
+* FULL JOIN = vai aparecer tudo 
+* CROSS JOIN = faz a combinação entre todos os elementos das 2 tabelas 
+* UNION 
+
+<br>
 
 <details>
    <summary><strong>EXEMPLOS</strong></summary>
    <br>
 
 
-        SELECT Nome, Sobrenome, Estado
-        FROM Clientes
-        WHERE Estado = 'São Paulo';
+        SELECT Nome, Sobrenome, Estado   // colunas que eu quero ver
+        FROM Clientes                    // nome da tabela
+        WHERE Estado = 'São Paulo';      // onde o estado for São Paulo
+
+<br>
+ 
+        SELECT Nome, Sobrenome, Estado                             // colunas que eu quero ver
+        FROM Clientes                                              // nome da tabela
+        WHERE (Estado = 'São Paulo') AND (Cidade = 'Santos');      // onde o estado for São Paulo e cidade for igual a Santos
 
 <br>
 
@@ -56,24 +69,24 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
 <br>
 
         SELECT * FROM actor;       -> actor nome da tabela
-   <br>
+<br>
 
 
 
         ou SELECT * FROM sacquila.actor     -> sacquila nome do banco de dados
    
-   <br>
+<br>
 
 
 
-        SELECT Col1, Col2
-        FROM (nome da tabela);             -> selecionar colunas específicas
+        SELECT Col1, Col2            -> selecionar colunas específicas
+        FROM (nome da tabela);            
 <br>
 
 
         SELECT 
-           Col1 AS "Coluna 1"
-           Col2 AS "Coluna 2"
+           Col1 AS "Coluna 1"     //vai mudar o nome da columa
+           Col2 AS "Coluna 2"   
         FROM (nome da tabela);
 <br>
 
@@ -87,20 +100,29 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
 
 <br>
    
-           SELECT 
-               Nome 
-           FROM Resultados; 
+        SELECT 
+            Nome 
+        FROM Resultados; 
            ( selecionar a coluna de nome que está na tabela resultado)
 
-   <br>
-   
+<br>    
+        // selecionar todas as colunas da tabela cliente onde a idade for...
+
+        SELECT * FROM TB_CLIENTES WHERE IDADE > 22;
+
+        SELECT * FROM TB_CLIENTES WHERE IDADE < 22;
+
+        SELECT * FROM TB_CLIENTES WHERE IDADE <= 22;
+
+<br>
+
         ORDER BY Col3;   ----> permite ordenar uma tabela a partir de uma coluna de forma ascendente
 
-   <br>
+<br>
    
         ORDER BY Col3 DESC; ----> ordena do maior ao menor.
 
-   <br>
+<br>
    
         SELECT 
             COUNT (DISTINCT Escolaridade)
@@ -129,5 +151,59 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
           tabela_A
        INNER JOIN tabela_B
           ON tabela_A.id_chave_estrangeira = Tabela_B.id_chave_primaria
-   
+
+<br>
+
+        //inserir valores
+
+        INSERT INTO TB_PRODUTOS 
+          (PRODUTO, NOME, EMBALAGEM, TAMANHO, SABOR, PRECO_LISTA) 
+        VALUES 
+          ('1040107', 'Light - 350 ml - Melância', 'Lata', '350 ml', 'Melância', 4.56);
+
+<br>
+
+        //alterar informaçoes 
+
+        UPDATE TB_PRODUTOS SET 
+           EMBALAGEM = 'Lata',
+           PRECO_LISTA = 2.46 
+        WHERE PRODUTO = '544931';
+
+        UPDATE TB_PRODUTOS SET 
+           EMBALAGEM = 'Garrafa'
+        WHERE PRODUTO = '1078680';
+
+<br>
+        //para deletar registros
+
+        DELETE FROM TB_PRODUTOS
+        WHERE PRODUTO = '1078680';
+
+<br>
+
+        // clientes possuem o último sobrenome Mattos
+
+        SELECT * FROM TABELA_DE_CLIENTES 
+        WHERE NOME LIKE '%Mattos'
+
+<br>
+
+        SELECT * FROM TABELA_DE_PRODUTOS WHERE SABOR LIKE '%Maca%' AND EMBALAGEM = 'PET';
+
+<br>
+
+        SELECT * FROM TABELA_DE_CLIENTES WHERE CIDADE IN ('Rio de Janeiro','Sao Paulo') AND (IDADE >= 20 AND IDADE <= 22);
+
+<br>
+
+        // vai aparecer quantos bairros diferentes tem na cidade do Rio de Janeiro 
+
+        SELECT DISTINCT BAIRRO FROM TABELA_DE_CLIENTES
+        WHERE CIDADE = 'Rio de Janeiro'
+
+<br>
+
+           
   </details>
+
