@@ -106,6 +106,7 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
            ( selecionar a coluna de nome que está na tabela resultado)
 
 <br>    
+
         // selecionar todas as colunas da tabela cliente onde a idade for...
 
         SELECT * FROM TB_CLIENTES WHERE IDADE > 22;
@@ -175,6 +176,7 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
         WHERE PRODUTO = '1078680';
 
 <br>
+
         //para deletar registros
 
         DELETE FROM TB_PRODUTOS
@@ -203,7 +205,6 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
         WHERE CIDADE = 'Rio de Janeiro'
 
 <br>
-
            
   </details>
 
