@@ -11,6 +11,7 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
 * LIMIT = limitar  o numero de linhas de uma tabel
 * ORDER BY = ordenar do menor para o maior
 * ORDER BY DESC = do maior ao menor
+* ON = USADO PARA IDENTIFICAR DENOMINADOR IGUAIL ENTRE AS TABELAS NO JOIN
 <br>
 
 * COUNT = retorna a quantidade total de valores de uma coluna
@@ -203,6 +204,19 @@ https://www.youtube.com/watch?v=rbH0B3mFsLI
 
         SELECT DISTINCT BAIRRO FROM TABELA_DE_CLIENTES
         WHERE CIDADE = 'Rio de Janeiro'
+
+<br>
+
+        SELECT
+                A.COD_HASH  AS CODIGOA,
+                A.ARQ_LOCAL AS ARQUIVOA,
+                B.COD_AREA  AS CODIGOB
+        FROM 
+                AUTOM_ARQUIVOS A
+        INNER JOIN
+                AUTOM_AREAS_X_USU B
+        ON
+                A.DAT_CADASTRO = B.DAT_CADASTRO
 
 <br>
            
